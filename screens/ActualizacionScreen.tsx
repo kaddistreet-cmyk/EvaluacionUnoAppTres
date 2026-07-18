@@ -6,8 +6,8 @@ import { supabase } from '../supabase/Config'
 export default function ActualizacionScreen() {
 
     const [idEditar, setIdEditar] = useState('')
-    const [ciudad, setCiudad] = useState('')
-    const [precio, setPrecio] = useState('')
+    const [nombre, setNombre] = useState('')
+    const [precio, setPrecio] = useState(0)
     const [descripcion, setDescripcion] = useState('')
 
     const [idEliminar, setIdEliminar] = useState('')
@@ -17,15 +17,15 @@ export default function ActualizacionScreen() {
         await supabase
             .from('ciudades')
             .update({
-                ciudad: ciudad,
+                nombre: nombre,
                 precio: Number(precio),
                 descripcion: descripcion
             })
             .eq('id', idEditar)
 
         setIdEditar('')
-        setCiudad('')
-        setPrecio('')
+        setNombre       ('')
+        setPrecio(0)
         setDescripcion('')
     }
 
@@ -55,17 +55,15 @@ export default function ActualizacionScreen() {
             />
 
             <TextInput
-                placeholder='Ciudad'
+                placeholder='Nombre'
                 style={stylesGlobal.input}
-                onChangeText={setCiudad}
-                value={ciudad}
+                onChangeText={setNombre}
             />
 
             <TextInput
                 placeholder='Precio'
                 style={stylesGlobal.input}
-                onChangeText={setPrecio}
-                value={precio}
+                onChangeText={(text) => setPrecio(Number(text))}
             />
 
             <TextInput

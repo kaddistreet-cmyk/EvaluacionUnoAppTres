@@ -6,7 +6,7 @@ import { supabase } from '../supabase/Config'
 export default function ConsultaScreen() {
 
     const [id, setId] = useState('')
-    const [ciudad, setCiudad] = useState('')
+    const [Nombre, setNombre] = useState('')
     const [precio, setPrecio] = useState('')
     const [descripcion, setDescripcion] = useState('')
     const [lista, setLista] = useState<any[]>([])
@@ -21,7 +21,7 @@ export default function ConsultaScreen() {
         if (error || data.length === 0) {
             Alert.alert('Error', 'No se encontró la ciudad')
         } else {
-            setCiudad(data[0].ciudad)
+            setNombre(data[0].nombre)
             setPrecio(data[0].precio.toString())
             setDescripcion(data[0].descripcion)
         }
@@ -62,7 +62,7 @@ export default function ConsultaScreen() {
             />
 
             <View style={stylesGlobal.tarjeta}>
-                <Text>Ciudad: {ciudad}</Text>
+                <Text>Nombre: {Nombre}</Text>
                 <Text>Precio: {precio}</Text>
                 <Text>Descripción: {descripcion}</Text>
             </View>

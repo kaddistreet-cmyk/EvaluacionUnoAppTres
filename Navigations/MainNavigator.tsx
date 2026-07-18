@@ -5,6 +5,7 @@ import BienvenidaScreen from "../screens/BienvenidaScreen"
 import ActualizacionScreen from '../screens/ActualizacionScreen';
 import ConsultaScreen from '../screens/ConsultaScreen';
 import RegistroScreen from '../screens/RegistroScreen';
+import EnlistarScreen from '../screens/EnlistarScreen';
 
 
 const Stack = createStackNavigator()
@@ -27,6 +28,7 @@ function MyTop() {
             <Top.Screen name='Registro' component={RegistroScreen} />
             <Top.Screen name='Consulta' component={ConsultaScreen} />
             <Top.Screen name='Actualizacion' component={ActualizacionScreen} />
+            <Top.Screen name='Enlistar' component={EnlistarScreen} />
         </Top.Navigator>
     )
 }
